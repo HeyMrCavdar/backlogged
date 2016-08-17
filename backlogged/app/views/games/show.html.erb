@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+	<h1 class="notice"><%= flash[:notice] %></h1>
+<%end%>
+
 <p>
 	<strong>Title:</strong>
 	<%= @game.title %>
@@ -8,4 +12,5 @@
 	<%= @game.platform %>
 </p>
 
+<%= link_to 'Edit', edit_game_path(@game) %>
 <%= link_to 'Back', games_path %>
