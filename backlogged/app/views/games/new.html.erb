@@ -1,38 +1,5 @@
 <h1>New Game</h1>
 
-<%= form_for :game, url: games_path do |f| %>
-
-	<% if @game.errors.any? %>
-		<div id="error_explanation">
-			<h2>
-				<%= pluralize(@game.errors.count, "error") %>
-				prohibited this article from being saved:
-			</h2>
-			<ul>
-				<% @game.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<%end%>
-			</ul>
-		</div>
-	<%end%>
-
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
-
-	<p>
-		<%= f.label :platform %><br>
-		<%= f.text_field :platform %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-<%end%>
-
-<% if flash[:notice] %>
-	<h1 class="notice"><%= flash[:notice] %></h1>
-<%end%>
+<%= render 'form' %>
 
 <%= link_to 'Back', games_path %>
