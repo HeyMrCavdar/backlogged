@@ -12,5 +12,34 @@
 	<%= @game.platform %>
 </p>
 
+<h2>Reviews</h2>
+<% @game.reviews.each do |review| %>
+	<p>
+		<strong>Review Source:</strong>
+		<%= review.review_source %>
+	</p>
+
+	<p>
+		<strong>Review Score:</strong>
+		<%= review.review_score %>
+	</p>
+<% end %>
+
+<h2>Add a review:</h2>
+<%= form_for([@game, @game.reviews.build]) do |f| %>
+	<p>
+		<%= f.label :review_source %><br>
+		<%= f.text_field :review_source %>
+	</p>
+
+	<p>
+		<%= f.label :review_score %><br>
+		<%= f.number_field :review_score %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>
+
 <%= link_to 'Edit', edit_game_path(@game) %>
 <%= link_to 'Back', games_path %>
